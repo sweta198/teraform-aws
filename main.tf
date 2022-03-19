@@ -1,31 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@sweta198 
-balajirb
-/
-terraform-aws
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-terraform-aws/main.tf
-@balajirb
-balajirb Add files via upload
-Latest commit 15d4344 on Oct 2, 2021
- History
- 1 contributor
-104 lines (88 sloc)  2.32 KB
-   
 #Create 
 terraform {
   required_providers {
@@ -100,7 +72,7 @@ resource "aws_instance" "jenkins" {
   ami             = data.aws_ami.ubuntu.id
   instance_type   = "t2.micro"
   security_groups = [aws_security_group.web_traffic.name]
-  key_name        = "jenkins-key-pair"
+  key_name        = "jenkin-key-pair"
 
   provisioner "remote-exec" {
     inline = [
@@ -122,7 +94,7 @@ resource "aws_instance" "jenkins" {
     type        = "ssh"
     host        = self.public_ip
     user        = "ubuntu"
-    private_key = file("./jenkins-key-pair.pem")
+    private_key = file("./jenkin-key-pair.pem")
   }
   tags = {
     "Name"      = "Jenkins_Server"
@@ -130,16 +102,3 @@ resource "aws_instance" "jenkins" {
   }
 
 }
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
